@@ -1,12 +1,12 @@
 package com.game.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "player", schema = "rpg")
+@NamedQuery(name = "Player.getAllCount", query = "select count(p) from Player p")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,6 @@ public class Player {
     @Column(name = "birthday", nullable = false)
     private Date birthday;
 
-    @Type(type = "yes_no")
     @Column(name = "banned", nullable = false)
     private Boolean banned;
 
